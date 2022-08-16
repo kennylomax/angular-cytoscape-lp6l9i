@@ -16,6 +16,7 @@
     "angular-draggable-droppable": "^4.0.2",
     "core-js": "2.6.3",
     "cytoscape": "^3.2.0 >=1.6.10",
+    "cytoscape-context-menus": "^4.1.0",
     "cytoscape-edgehandles": "3.5.0",
     "cytoscape-grid-guide": "2.2.1",
     "jquery": "^3.3.1",

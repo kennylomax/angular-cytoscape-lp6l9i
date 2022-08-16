@@ -9,19 +9,26 @@ import {
 } from '@angular/core';
 
 import { DropEvent } from 'angular-draggable-droppable';
-
 import cytoscape = require('cytoscape');
+import contextMenus from 'cytoscape-context-menus';
+
+import 'cytoscape-context-menus/cytoscape-context-menus.css';
+
 var jquery = require('jquery');
 var gridGuide = require('cytoscape-grid-guide');
 var edgehandles = require('cytoscape-edgehandles');
 gridGuide(cytoscape, jquery);
 cytoscape.use(edgehandles);
+cytoscape.use(contextMenus);
 
 //Interfaces
 export interface Comp {
   name?: string;
   value?: number;
   nodeid?: any;
+  l1?: any;
+  l2?: any;
+  l3?: any;
 }
 
 export interface Cord {
@@ -8883,6 +8890,7 @@ export class EditorComponent implements OnInit {
     this.numOfNodes =+ 1;*/
     //this.zoomlevel = this.cy.zoom();
     //console.log(this.zoomlevel);
+
     if (item === 'Resistor') {
       this.numRes += 1;
       this.cy.add([
@@ -8901,7 +8909,7 @@ export class EditorComponent implements OnInit {
         {
           group: 'nodes',
           data: { id: 'C' + this.numCap, name: item, value: 1000 },
-          renderedPosition: { x: this.transform.x, y: this.transform.y + 50 },
+          renderedPosition: { x: this.transform.x, y: this.transform.y },
         },
       ]);
     } else if (item === 'Inductor') {
@@ -8910,7 +8918,7 @@ export class EditorComponent implements OnInit {
         {
           group: 'nodes',
           data: { id: 'C' + this.numInd, name: item, value: 1000 },
-          renderedPosition: { x: this.transform.x, y: this.transform.y + 100 },
+          renderedPosition: { x: this.transform.x, y: this.transform.y },
         },
       ]);
 
@@ -8927,8 +8935,8 @@ export class EditorComponent implements OnInit {
     });
 
     //console.log(this.cy.elements().data());
-    let layout = this.cy.layout(this.options);
-    layout.run();
+    //let layout = this.cy.layout(this.options);
+    //layout.run();
     //console.log(this.graph.nodes);
     //this.cd.markForCheck();
     /*this.cy.add([{
@@ -8981,15 +8989,9 @@ export class EditorComponent implements OnInit {
   }
   evtListener() {
     this.cy.one('tap', (event) => {
-      //this.eh.enableDrawMode();
-
       var evtTarget = event.target;
-      if (evtTarget.isNode()) {
-        //console.log('clicked ' + evtTarget.data('name'));
-        //console.log('clicked ' + evtTarget.id(value));
-        //console.log(this.cy.extent());
+      if (evtTarget && evtTarget.isNode && evtTarget.isNode()) {
         this.markComponent = evtTarget.name;
-        //setBackgroundcolor(evtTarget.name);
         this.compModel = {
           name: evtTarget.data('name'),
           value: evtTarget.data('value'),
@@ -8998,16 +9000,15 @@ export class EditorComponent implements OnInit {
           l2: evtTarget.data('l2'),
           l3: evtTarget.data('l3'),
         };
-        this.v1 = this.compModel.name;
-        this.v2 = this.compModel.l1;
-        this.v3 = this.compModel.l2;
-        this.v4 = this.compModel.l3;
+        this.v1 = this.compModel.l1;
+        this.v2 = this.compModel.l2;
+        this.v3 = this.compModel.l3;
 
         console.log(this.compModel.name);
         console.log(this.compModel.value);
         console.log(this.compModel.nodeid);
         console.log(this.cy.json());
-      } else if (evtTarget.isEdge()) {
+      } else if (evtTarget && evtTarget.isEdge && evtTarget.isEdge()) {
         console.log('this is an edge');
         this.markComponent = '';
       } else {
