@@ -11,25 +11,11 @@ import {
 import { DropEvent } from 'angular-draggable-droppable';
 
 import cytoscape = require('cytoscape');
-//import * as cytoscape from 'cytoscape';
-
-//Importing cytoscape to the component
-//import cytoscape = require('cytoscape');
-
-//Importing cytoscape extension, gridGuide
 var jquery = require('jquery');
 var gridGuide = require('cytoscape-grid-guide');
-//import edgehandles = require('cytoscape-edgehandles')
-//Importing cytoscape extension, edgehandles
 var edgehandles = require('cytoscape-edgehandles');
-//import edgehandles from 'cytoscape-edgehandles'//= require("cytoscape-edgehandles");
-//import * as edgehandles from 'cytoscape-edgehandles';
-//install edgehandles to cytoscape as an extension
-
-//specify which cytoscape, gridGuide should use, note requires jquery.js
 gridGuide(cytoscape, jquery);
 cytoscape.use(edgehandles);
-//import * as edgehandles from 'cytoscape-edgehandles';//const edgehandles = require('cytoscape-edgehandles');
 
 //Interfaces
 export interface Comp {
@@ -7871,48 +7857,6 @@ export class EditorComponent implements OnInit {
           par: '',
           type: 'bendPoint',
           level: 0,
-          id: '154',
-          value: null,
-          name: 'DatabasesAmazon-DynamoDB',
-          skillgap: null,
-          source: 'Databases',
-          target: 'Amazon DynamoDB',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '155',
-          value: null,
-          name: 'DatabasesAmazon-ElastiCache',
-          skillgap: null,
-          source: 'Databases',
-          target: 'Amazon ElastiCache',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
           id: '156',
           value: null,
           name: 'DatabasesAzure-Cosmos-DB',
@@ -7934,138 +7878,12 @@ export class EditorComponent implements OnInit {
           par: '',
           type: 'bendPoint',
           level: 0,
-          id: '157',
-          value: null,
-          name: 'DatabasesAzure-SQL',
-          skillgap: null,
-          source: 'Databases',
-          target: 'Azure SQL',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '158',
-          value: null,
-          name: 'DatabasesAzure-SQL-Data-Warehouse',
-          skillgap: null,
-          source: 'Databases',
-          target: 'Azure SQL Data Warehouse',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
           id: '159',
           value: null,
           name: 'DatabasesMariaDB',
           skillgap: null,
           source: 'Databases',
           target: 'MariaDB',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '160',
-          value: null,
-          name: 'DatabasesMicrosoft-SQL-Server',
-          skillgap: null,
-          source: 'Databases',
-          target: 'Microsoft SQL Server',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '161',
-          value: null,
-          name: 'DatabasesMySQL',
-          skillgap: null,
-          source: 'Databases',
-          target: 'MySQL',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '162',
-          value: null,
-          name: 'DatabasesPostgreSQL',
-          skillgap: null,
-          source: 'Databases',
-          target: 'PostgreSQL',
-          tree: 3,
-        },
-        group: 'edges',
-        selectable: true,
-        grabbable: true,
-        classes: '',
-      },
-      {
-        data: {
-          l1: '',
-          l2: '',
-          l3: '',
-          par: '',
-          type: 'bendPoint',
-          level: 0,
-          id: '163',
-          value: null,
-          name: 'DatabasesSQLite',
-          skillgap: null,
-          source: 'Databases',
-          target: 'SQLite',
           tree: 3,
         },
         group: 'edges',
@@ -8813,7 +8631,6 @@ export class EditorComponent implements OnInit {
       style: {
         width: 2,
         'curve-style': 'bezier',
-        'target-arrow-shape': 'triangle',
       },
     },
     {
@@ -8840,7 +8657,6 @@ export class EditorComponent implements OnInit {
       style: {
         width: 2,
         'curve-style': 'bezier',
-        'target-arrow-shape': 'triangle',
       },
     },
     {
@@ -8858,8 +8674,6 @@ export class EditorComponent implements OnInit {
   ];
 
   ngOnInit() {
-    //this.cd.markForCheck(); // marks path
-
     // Initialize cytoscape
 
     this.cy = cytoscape({
