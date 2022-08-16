@@ -48,6 +48,14 @@ export class EditorComponent implements OnInit {
   public value: string;
   public value1: string;
   public remNode: string;
+
+  //klx
+  public v1: string;
+  public v2: string;
+  public v3: string;
+  public v4: string;
+  public v5: string;
+
   private options: any;
   snapping: any = { x: 0, y: 0 };
   color: string = 'red';
@@ -8986,7 +8994,15 @@ export class EditorComponent implements OnInit {
           name: evtTarget.data('name'),
           value: evtTarget.data('value'),
           nodeid: evtTarget.data('id'),
+          l1: evtTarget.data('l1'),
+          l2: evtTarget.data('l2'),
+          l3: evtTarget.data('l3'),
         };
+        this.v1 = this.compModel.name;
+        this.v2 = this.compModel.l1;
+        this.v3 = this.compModel.l2;
+        this.v4 = this.compModel.l3;
+
         console.log(this.compModel.name);
         console.log(this.compModel.value);
         console.log(this.compModel.nodeid);
